@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Contact Card</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <style type="text/css">
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .content {
+            width: 60%;
+            margin-left: 20%;
+            margin-top: 5%;
+        }
+
+        .dataEntry {
+            width: 50%;
+            min-height: 230px;
+            padding-top: 10px;
+        }
+
+        .contactCards {
+            min-height: 230px;
+            max-height: 800px;
+            width: 45%;
+        }
+        
+        form {
+            margin: 0px 0px 0px 20px;
+        }
+
+        form p {
+            margin: 5px 0px;
+        }
+
+        form input {
+            height: 21px;
+            margin-left: 10px;
+        }
+
+        form button {
+            display: block;
+            padding: 5px 10px;
+            width: 30%;
+            margin: 20px 0px 20px 50%;
+        }
+
+        .inline {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .labels p {
+            text-align: end;
+            height: 26px;
+        }
+
+        .inputs {
+            width: 50%;
+        }
+
+        .inputs input {
+            width: 100%;
+        }
+        
+        .card {
+            width: 80%;
+            margin: 10px 0px 10px 5%;
+            border: 2px black solid;
+            padding: 10px;
+        }
+
+    </style>
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $(document).on("click", "#btnSubmit", function() {
+                var tag = "<div class='card'><h2>" + $('#firstName').val() + " " + $('#lastName').val() + "</h2><p>" + $('#desc').val() + "</p></div>";
+
+                $('.contactCards').append(tag);
+
+                return false;
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="content">
+        <div class="dataEntry inline">
+            <form action="users.js" method="post">
+                <div class="labels inline">
+                    <p><label for="firstName">First Name:</label></p>
+                    <p><label for="lastName">Last Name:</label></p>
+                </div>
+                <div class="inputs inline">
+                    <p><input id="firstName" type="text" placeholder="Enter your first name"/></p>
+                    <p><input id="lastName" type="text" placeholder="Enter your last name"/></p>
+                </div>
+                <p><label for="desc">Description</label></p>
+                <p><textarea id="desc" type="text" placeholder="Enter the description" rows="5" cols="39"></textarea></p>
+    
+                <button id="btnSubmit" type="submit">Add User</button>
+            </form>
+        </div>
+        <div class="contactCards inline"></div>
+    </div>    
+</body>
+</html>
